@@ -5,21 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>What I learned Yesterday</title>
   <meta name="description" content="Some heuristics to get better at writing clean code that cam approves of:">
+  <meta name="theme-color" content="#0f0f0d">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono&family=Instrument+Serif:ital@0;1&display=swap">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <div class="page">
+  <div class="wrap">
     <header class="top">
       <a class="name" href="/">aarya garimella</a>
-      <nav><a href="/">about</a><a href="/writing/" aria-current="page">writing</a></nav>
+      <nav><a href="/">home</a><a href="/writing/" aria-current="page">writing</a></nav>
     </header>
     <article>
       <h1>What I learned Yesterday</h1>
-      <div class="meta"><time datetime="2026-03-12">March 12, 2026</time> · originally on <a href="https://aaryagarimella.substack.com/p/what-i-learned-yesterday">substack</a></div>
+      <div class="meta"><time datetime="2026-03-12">March 12, 2026</time> — originally on <a href="https://aaryagarimella.substack.com/p/what-i-learned-yesterday">substack</a></div>
       <p>Some heuristics to get better at writing clean code that cam approves of:</p>
       <ul>
       <li><p>network calls are slow, and you should parallelize them. I lowkey knew this but still had this as a nit in a pr. NTS: whenever making api requests in my code make sure they are implemented efficiently during pr review.</p>
@@ -53,7 +54,7 @@
       </ul>
     </article>
 
-    <footer class="foot">© 2026 aarya garimella</footer>
+    <footer class="foot"><span>aaryagarimella.com</span><span>2026</span></footer>
   </div>
 </body>
 </html>
