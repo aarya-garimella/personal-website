@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What I learned Yesterday</title>
+  <meta name="description" content="Some heuristics to get better at writing clean code that cam approves of:">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="top">
+      <a class="name" href="/">aarya garimella</a>
+      <nav><a href="/">about</a><a href="/writing/" aria-current="page">writing</a></nav>
+    </header>
+    <article>
+      <h1>What I learned Yesterday</h1>
+      <div class="meta"><time datetime="2026-03-12">March 12, 2026</time> · originally on <a href="https://aaryagarimella.substack.com/p/what-i-learned-yesterday">substack</a></div>
+      <p>Some heuristics to get better at writing clean code that cam approves of:</p>
+      <ul>
+      <li><p>network calls are slow, and you should parallelize them. I lowkey knew this but still had this as a nit in a pr. NTS: whenever making api requests in my code make sure they are implemented efficiently during pr review.</p>
+      </li>
+      <li><p>Minimize parameters whenever you can. Aggressively cut complexity out of your code. If you aren’t adding things back in at least 20% of the time, I think you might not be trying hard enough to cut the complexity.</p>
+      </li>
+      <li><p>Probably better to use public APIs for grabbing properties and such instead of calling some private attributes of the object because its much more likely some attribute will change and you have a weird bug that is probably going to cause u pain.</p>
+      </li>
+      <li><p>Retry’s are important, but I knew this. What I learned is to be careful of non idempotent actions when implementing retrys. It is very easy to just be like “retry if timeout” but its possible some sub tasks of your action were executed on the server and retrying fucks something up because it takes a different path on the server.</p>
+      </li>
+      </ul>
+      <p>Some stuff i learned about how actions work on the backend:</p>
+      <ul>
+      <li><p>function sdk client does NOT have access to the action endpoint, but CM sdk client does. Also, action edits are always compiled as a json and then applied to the ontology at the END. There are many down stream effects of this that u can think about. Note: tsv1 is apparently not a global client and some other dark magic, but nonetheless, the token that is like abstracted away from you does not have access to the actions api</p>
+      </li>
+      <li><p>The way around above is to create your own token with special perms and the only way to do this in foundry is with a service user. This however makes it so actions are really executed by the client and not the user clicking the button which maybe is bad for security.</p>
+      </li>
+      <li><p>I wish they had the ability to define as many transactions as you want in functions. that would solve all my problems :(</p>
+      </li>
+      </ul>
+      <p>How did we go from usury illegal → usury fine (from approximately pre 1200 → 1700) The years are vague but thats the general timeline im looking at. (credit to my buddy jai for talking through this w me and explaining these ideas to me)</p>
+      <ul>
+      <li><p>The reason it was able to be enforced way back when was because the catholic church held power. Since they had power they were able to enforce the rules, and people largely followed the church so the threat of excommunication and other punishments were enough to deter Christians from doing ts.</p>
+      </li>
+      <li><p>However this did not apply to jewish people. They were not christian and for them, usury was not outlawed. So they were mostly the poeple who took on the role of money lenders. (generally where all the stereotypes come from)</p>
+      </li>
+      <li><p>Then, the power of the church declined slowly over a few hundred years because kings and such found it useful for there to be a few lenders, and generally as there is more political competition from more empires/kingdoms, it becomes hard fo rhte church to enforce itself as the primary decision maker on something like this and they are unable to enforce their moral laws on all of medival europe.</p>
+      </li>
+      <li><p>Then, the final nail in the coffin is probably the protestant revolution which kind of shattered the absolute Christian authority of the catholic church.</p>
+      </li>
+      </ul>
+    </article>
+
+    <footer class="foot">© 2026 aarya garimella</footer>
+  </div>
+</body>
+</html>
