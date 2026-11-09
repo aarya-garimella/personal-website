@@ -4,13 +4,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>aarya garimella</title>
-  <meta name="description" content="Aarya Garimella's personal site.">
+  <meta name="description" content="Aarya Garimella. I think the two greatest problems of our generation are cheap, abundant energy via nuclear fusion and faster scientific discovery via AI. Previously an AI engineer at Palantir.">
+  <meta property="og:title" content="aarya garimella">
+  <meta property="og:description" content="Cheap, abundant energy via fusion, and faster science via AI: the two greatest problems of our generation.">
+  <meta property="og:url" content="https://aaryagarimella.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="aarya garimella">
+  <meta name="twitter:card" content="summary">
   <meta name="theme-color" content="#0f0f0d">
+  <link rel="canonical" href="https://aaryagarimella.com/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono&family=Instrument+Serif:ital@0;1&display=swap">
   <link rel="stylesheet" href="/style.css">
+  <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
   <div class="wrap">
@@ -19,41 +27,64 @@
       <nav><a href="/" aria-current="page">home</a><a href="/writing/">writing</a></nav>
     </header>
 
-    <section class="row">
+    <section class="row reveal">
       <div class="k">about</div>
       <div class="v">
         <p class="lead">hi, i'm aarya.</p>
-        <p>lorem ipsum dolor sit amet, consectetur adipiscing elit. sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad <a href="/">minim veniam</a>.</p>
-        <p>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <p class="thesis">i think the two greatest problems of our generation are <em>building efficient, abundant, cheap energy through nuclear fusion</em>, and <em>speeding up scientific discovery with ai</em>.</p>
+        <p>energy is the ceiling on what a civilization can do: what it can build, grow, compute and move. discovery is how fast we get there. raise the ceiling and speed up the climb, and almost everything else gets easier.</p>
       </div>
     </section>
 
-    <section class="row">
-      <div class="k">placeholder</div>
+    <section class="row reveal">
+      <div class="k">before this</div>
       <div class="v">
-        <ul class="dash">
-          <li>lorem ipsum dolor sit amet</li>
-          <li>consectetur adipiscing elit</li>
-          <li>sed do eiusmod tempor incididunt</li>
-        </ul>
+        <p>i took a gap year after high school to work as an ai engineer at <a href="https://www.palantir.com/">palantir</a>, through the meritocracy fellowship. i was on the hospitals team.</p>
+        <p>i saw two things up close. first, individuals can rewrite things into their own vision. second, the vision of the so-called giants is not always fully fleshed out. it often looks more finished from the outside than it is.</p>
+        <p>we are all just humans. if you have a good idea, you should go do it.</p>
+        <p class="aside">more on that year: <a href="/writing/palantir-changed-my-life/">palantir changed my life</a></p>
       </div>
     </section>
 
-    <section class="row">
-      <div class="k">another</div>
+    <section class="row reveal">
+      <div class="k">things i like</div>
       <div class="v">
-        <p>excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>stellarators, tokamaks (still undecided), cheap electrons, leo strauss, long arguments that end in a decision, writing things down, people who build the thing instead of tweeting about it, hospitals that run on time, cold mornings, hard comparisons.</p>
       </div>
     </section>
 
-    <section class="row">
-      <div class="k">elsewhere</div>
+    <section class="row reveal">
+      <div class="k">things i don't like</div>
       <div class="v">
-        <p><a href="/writing/">writing</a> · <a href="https://github.com/aarya-garimella">github</a> · <a href="https://aaryagarimella.substack.com/">substack</a></p>
+        <p>the phrase <em>"fusion is always thirty years away"</em></p>
+      </div>
+    </section>
+
+    <section class="row reveal">
+      <div class="k">say hi</div>
+      <div class="v">
+        <p>i love meeting people, especially anyone working on energy, science, or anything ambitious. reach out and i'll write back.</p>
+        <p><a href="mailto:avgarime@andrew.cmu.edu">avgarime@andrew.cmu.edu</a> · <a href="https://github.com/aarya-garimella">github</a> · <a href="https://aaryagarimella.substack.com/">substack</a> · <a href="/writing/">writing</a></p>
       </div>
     </section>
 
     <footer class="foot"><span>aaryagarimella.com</span><span>2026</span></footer>
   </div>
+
+  <script>
+    (function () {
+      var rows = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        rows.forEach(function (r) { r.classList.add('in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { rootMargin: '0px 0px -8% 0px' });
+      rows.forEach(function (r, i) { r.style.transitionDelay = Math.min(i, 3) * 70 + 'ms'; io.observe(r); });
+    })();
+  </script>
 </body>
 </html>
